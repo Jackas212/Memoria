@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package memoria;
+
 import java.util.Scanner;
 
 /**
@@ -12,16 +12,18 @@ import java.util.Scanner;
  * @author darkangel
  */
 public class Memoria {
-        public final static int OVERFLOW = 200000000;
+
+    public final static int OVERFLOW = 200000000;
     private String salida;
     String tempOOM = "";
 
-    public Memoria(int leng){
+    public Memoria(int leng) {
         for (int i = 0; i < leng; i++) {
-            try {         
+            try {
                 this.salida += "a";
             } catch (OutOfMemoryError e) {
                 e.printStackTrace();
+                i=leng;
             }
         }
         this.salida = tempOOM.toString();
